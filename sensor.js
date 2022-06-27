@@ -19,6 +19,7 @@ class Sensor {
 
   #getReading(ray, roadBorders, traffic) {
     let touches = [];
+
     for (let i = 0; i < roadBorders.length; i++) {
       const touch = getIntersection(
         ray[0],
@@ -57,7 +58,6 @@ class Sensor {
 
   #castRays() {
     this.rays = [];
-
     for (let i = 0; i < this.rayCount; i++) {
       const rayAngle =
         lerp(
@@ -71,7 +71,6 @@ class Sensor {
         x: this.car.x - Math.sin(rayAngle) * this.rayLength,
         y: this.car.y - Math.cos(rayAngle) * this.rayLength,
       };
-
       this.rays.push([start, end]);
     }
   }
@@ -82,6 +81,7 @@ class Sensor {
       if (this.readings[i]) {
         end = this.readings[i];
       }
+
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.strokeStyle = "yellow";
